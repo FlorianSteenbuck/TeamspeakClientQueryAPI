@@ -103,7 +103,7 @@ This function use the pre initalized socket ([teamspeak_socket_init](#teamspeak_
 
 #### Parameters
 `socket`<br>
-The Client Query Socket must be a raw tcp socket connection. I recommend to use the [teamspeak_socket_init](#teamspeak_socket_init) function, because you get trouble with getting data from the response stream.
+The Client Query Socket must be a raw tcp socket connection. I recommend to use the [teamspeak_socket_init](#teamspeak_socket_init) function, because you maybe get trouble with getting data from the response stream.
 
 `command`<br>
 The Command must be a String without "\n". I recommend to use the [tool.php](https://github.com/BluscreamFanBoy/TeamspeakClientQueryAPI/blob/master/tool.php) to find out more about the commands.
