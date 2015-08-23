@@ -12,5 +12,6 @@ while(get_teamspeak_status($line) == null){
 	echo $line;
 	$line = fgets($ts3query);
 }
+fgets(STDIN);
 fclose($ts3query);
 ?>
