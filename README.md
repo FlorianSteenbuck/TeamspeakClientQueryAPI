@@ -56,3 +56,71 @@ echo teamspeak_socket_send($ts3clientquery,"clientupdate client_nickname=".teams
 //Close the clientquery
 fclose($ts3clientquery);
 ```
+
+## Functions
+
+[teamspeak_socket_init](#teamspeak_socket_init)<br>
+[teamspeak_socket_send](#teamspeak_socket_send)
+
+### teamspeak_socket_init
+
+#### Description
+```php
+teamspeak_socket_init($clientquery_port=25639)
+```
+This is a Function that initalize a local socket connection to the teamspeak client query and `gets` and `echo` the first 3 lines of the response.
+
+#### Parameters
+`clientquery_port`<br>
+The Client Query must be a Integer. If not set it is using the default port for the clientquery(25639).
+
+#### Return Values
+This Function return a simple raw socket for a connection to the teamspeak client query.
+
+#### Examples
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+```
+
+```php
+//Create a connection to the current client query with a custom port
+$ts3query = teamspeak_socket_init(12058);
+```
+
+#### Changelog
+
+No Changes
+
+### teamspeak_socket_send
+
+#### Description
+```php
+teamspeak_socket_send($socket,$command)
+```
+This function use the pre initalized socket ([teamspeak_socket_init](#teamspeak_socket_init)) to send some command to the client query.
+
+#### Parameters
+`socket`<br>
+The Client Query Socket must be a raw tcp socket connection. I recommend to use the [teamspeak_socket_init](#teamspeak_socket_init) function, because you get trouble with getting data from the response stream.
+
+`command`<br>
+The Command must be a String without "\n". I recommend to use the [tool.php](https://github.com/BluscreamFanBoy/TeamspeakClientQueryAPI/blob/master/tool.php) to find out more about the commands.
+
+#### Return Values
+This Function return the next line of the response after sending the command.
+
+#### Examples
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+
+//Send the Command to Change the nickname to "IamStupid"
+echo teamspeak_socket_send($ts3query,"clientupdate client_nickname=IamStupid");
+```
+
+#### Changelog
+
+No Changes
