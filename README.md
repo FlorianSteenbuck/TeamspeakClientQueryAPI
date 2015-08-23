@@ -12,7 +12,7 @@ Its simple like that you include the `api.php`
 include "api.php";
 ```
 And then you can use all functions<br>
-To start the a connection to the Teamspeak Client Query you simply can run the function `teamspeak_socket_init` and get the return variable
+To start the a connection to the Teamspeak Client Query you simply can run the function [teamspeak_socket_init](#teamspeak_socket_init) and get the return variable
 ```php
 //Include the api file for using the functions
 include "api.php";
@@ -21,7 +21,7 @@ include "api.php";
 $ts3clientquery = teamspeak_socket_init();
 ```
 In the next step you can use this variable to send and receive something from your clientquery data.<br>
-In this example we change your nickname for that we need the `teamspeak_socket_send` function
+In this example we change your nickname for that we need the [teamspeak_socket_send](#teamspeak_socket_send) function
 ```php
 //Include the api file for using the functions
 include "api.php";
@@ -37,7 +37,7 @@ with the teamspeak_escape function
 */
 echo teamspeak_socket_send($ts3clientquery,"clientupdate client_nickname=".teamspeak_escape("I am Stupid"));
 ```
-After you send all what you want the best way to end your program is to use the `fclose` function
+After you send all what you want the best way to end your program is to use the [fclose](http://php.net/manual/en/function.fclose.php) function
 ```php
 //Include the api file for using the functions
 include "api.php";
