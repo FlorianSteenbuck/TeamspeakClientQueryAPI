@@ -63,7 +63,7 @@ function get_teamspeak_param($name,$teamspeakreturn){
 }
 
 function get_teamspeak_status($teamspeakreturn){
-  if(substr($teamspeakreturn,0,5) == "error"){
+  if(substr($teamspeakreturn, 0,6) == "\rerror"){
     return get_teamspeak_param(1,$teamspeakreturn);
   }
   else{
