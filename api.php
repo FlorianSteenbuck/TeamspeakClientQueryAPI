@@ -80,7 +80,7 @@ function teamspeak_socket_init($clientquery_port=25639){
 }
 
 function teamspeak_socket_send($socket,$command){
-  fputs($fp,$command."\n");
+  fputs($socket,$command."\n");
   return fgets($socket);
 }
 
