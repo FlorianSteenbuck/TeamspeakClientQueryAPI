@@ -1,7 +1,6 @@
 <?php
 function an_runboi($name,$i,$max=30,$asci="_",$replace_empty_space=false){
  $hidden_space = strlen($name);
- scriptlog($i."\n");
  $after_ascis = $max-$i+strlen($name);
  $before_ascis = $i;
  $full_length = $after_ascis+$before_ascis;
