@@ -199,3 +199,31 @@ fclose($ts3query);
 #### Changelog
 
 No Changes
+
+### teamspeak_getname
+
+#### Description
+```php
+teamspeak_getname($socket)
+```
+This function read the current name of the client.
+
+#### Parameters
+`socket`<br>
+The Client Query Socket must be a raw tcp socket connection. I recommend to use the [teamspeak_socket_init](#teamspeak_socket_init) function, because you maybe get trouble with getting data from the response stream.
+
+#### Return Values
+This function return the current name of the client.
+
+#### Examples
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+//Echo the current name of the clientquery
+echo teamspeak_getname($ts3query,"help");
+```
+
+#### Changelog
+
+No Changes
