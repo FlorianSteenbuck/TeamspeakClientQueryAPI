@@ -62,7 +62,8 @@ fclose($ts3clientquery);
 [teamspeak_socket_init](#teamspeak_socket_init)<br>
 [teamspeak_socket_send](#teamspeak_socket_send)<br>
 [get_teamspeak_param](#get_teamspeak_param)<br>
-[get_teamspeak_status](#get_teamspeak_status)
+[get_teamspeak_status](#get_teamspeak_status)<br>
+[teamspeak_getname](#teamspeak_getname)
 
 ### teamspeak_socket_init
 
