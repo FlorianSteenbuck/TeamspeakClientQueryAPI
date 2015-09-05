@@ -63,7 +63,8 @@ fclose($ts3clientquery);
 [teamspeak_socket_send](#teamspeak_socket_send)<br>
 [get_teamspeak_param](#get_teamspeak_param)<br>
 [get_teamspeak_status](#get_teamspeak_status)<br>
-[teamspeak_getname](#teamspeak_getname)
+[teamspeak_getname](#teamspeak_getname)<br>
+[teamspeak_escape](#teamspeak_escape)
 
 ### teamspeak_socket_init
 
@@ -228,3 +229,31 @@ echo teamspeak_getname($ts3query);
 #### Changelog
 
 No Changes
+
+### teamspeak_escape
+
+#### Description
+```php
+teamspeak_escape($str)
+```
+This function escape the value of a parameter value.
+
+#### Parameters
+`str`<br>
+This variable is a simple string for a value in teamspeak.
+
+#### Return Values
+This function return the escaped string for
+
+#### Examples
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+//Change the Client Name to 'I am Stupid'
+echo teamspeak_socket_send($ts3query,"clientupdate client_nickname=".teamspeak_escape("I am Stupid"));
+```
+
+#### Changelog
+
+[commit 39a15a7b14a05d22704e658ee47204ac850e3df9](https://github.com/BluscreamFanBoy/TeamspeakClientQueryAPI/commit/39a15a7b14a05d22704e658ee47204ac850e3df9) add the better escaping for | instead of use │ I use \p
