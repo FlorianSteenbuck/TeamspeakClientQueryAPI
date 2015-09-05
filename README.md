@@ -222,7 +222,7 @@ This function return the current name of the client.
 //Create a connection to the current client query
 $ts3query = teamspeak_socket_init();
 //Echo the current name of the clientquery
-echo teamspeak_getname($ts3query,"help");
+echo teamspeak_getname($ts3query);
 ```
 
 #### Changelog
