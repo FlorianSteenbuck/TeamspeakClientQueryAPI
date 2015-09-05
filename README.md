@@ -61,7 +61,8 @@ fclose($ts3clientquery);
 
 [teamspeak_socket_init](#teamspeak_socket_init)<br>
 [teamspeak_socket_send](#teamspeak_socket_send)<br>
-[get_teamspeak_param](#get_teamspeak_param)
+[get_teamspeak_param](#get_teamspeak_param)<br>
+[get_teamspeak_status](#get_teamspeak_status)
 
 ### teamspeak_socket_init
 
@@ -158,6 +159,41 @@ $clid = get_teamspeak_param(0,teamspeak_socket_send($ts3query,"whoami"));
 $ts3query = teamspeak_socket_init();
 //Use the get_teamspeak_param to get the client id(clid) by the string "clid"
 $clid = get_teamspeak_param("clid",teamspeak_socket_send($ts3query,"whoami"));
+```
+
+#### Changelog
+
+No Changes
+
+### get_teamspeak_status
+
+#### Description
+```php
+get_teamspeak_status($teamspeakreturn)
+```
+This function is a status code reader from the status message output of teamspeak.
+
+#### Parameters
+`teamspeakreturn`<br>
+This is a line of returned output.
+
+#### Return Values
+This function return the status code of the status message of `teamspeakreturn` or null if `teamspeakreturn` is not a status message the function return `null`.
+
+#### Examples
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+//Get a line of the help page
+$line = teamspeak_socket_send($ts3query,"help");
+//Echo the next line if the current line is not a status line loop
+while(get_teamspeak_status($line) == null){
+	echo $line;
+	$line = fgets($ts3query);
+}
+//Close the connection of the ts3query
+fclose($ts3query);
 ```
 
 #### Changelog
