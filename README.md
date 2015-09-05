@@ -60,7 +60,8 @@ fclose($ts3clientquery);
 ## Functions
 
 [teamspeak_socket_init](#teamspeak_socket_init)<br>
-[teamspeak_socket_send](#teamspeak_socket_send)
+[teamspeak_socket_send](#teamspeak_socket_send)<br>
+[get_teamspeak_param](#get_teamspeak_param)
 
 ### teamspeak_socket_init
 
@@ -119,6 +120,44 @@ $ts3query = teamspeak_socket_init();
 
 //Send the Command to Change the nickname to "IamStupid"
 echo teamspeak_socket_send($ts3query,"clientupdate client_nickname=IamStupid");
+```
+
+#### Changelog
+
+No Changes
+
+### get_teamspeak_param
+
+#### Description
+```php
+get_teamspeak_param($name,$teamspeakreturn)
+```
+This function is a parameter reader for the default teamspeak client query output.
+
+#### Parameters
+`name`<br>
+This is the name of the parameter you can take here for a string or a int
+
+`teamspeakreturn`<br>
+This is a line of returned output.
+
+#### Return Values
+This Function return the value of the name or count of parameter.
+
+#### Examples
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+//Use the get_teamspeak_param to get the client id(clid) by the int 0(first parameter)
+$clid = get_teamspeak_param(0,teamspeak_socket_send($ts3query,"whoami"));
+```
+
+```php
+//Create a connection to the current client query
+$ts3query = teamspeak_socket_init();
+//Use the get_teamspeak_param to get the client id(clid) by the string "clid"
+$clid = get_teamspeak_param("clid",teamspeak_socket_send($ts3query,"whoami"));
 ```
 
 #### Changelog
