@@ -1,10 +1,9 @@
 <?php
-include("api.php");
-$names = file_get_contents("../files/names.txt");
-$names = str_replace(" ", "\\s", $names);
-$names = str_replace("|", "│", $names);
-$names = explode("\n",$names);
+include("../api.php");
+//Get Names and change randomly this names after 10s
+$names = explode("↵",teamspeak_escape(file_get_contents("conf_files/names.txt")));
 $ts3query = teamspeak_socket_init();
+$lasti = 0;
 while(1){
     $i = rand(0,count($names)-1);
     while($i == $lasti){
@@ -12,7 +11,7 @@ while(1){
     }
     $name = $names[$i];
     teamspeak_socket_send($ts3query,"clientupdate client_nickname=".$name."\n");
-    sleep(10);// usleep(50000);
+    sleep(10);
     $lasti = $i;
 }
 fclose($ts3query);

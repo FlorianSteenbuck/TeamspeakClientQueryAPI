@@ -1,1 +1,0 @@
-"D:\Coding\Projekte\PHP\php.exe" "D:\SERVERS\xampp\htdocs\teamspeak\ts3\TeamspeakClientQueryAPI\tool.php"

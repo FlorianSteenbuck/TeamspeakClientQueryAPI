@@ -1,7 +1,6 @@
 <?php
-function an_runboi($name,$i,$max=30,$asci="_",$replace_empty_space=false){
+function an_runboi($name,$i,$replace_empty_space=false,$max=30,$asci="_"){
  $hidden_space = strlen($name);
- scriptlog($i."\n");
  $after_ascis = $max-$i+strlen($name);
  $before_ascis = $i;
  $full_length = $after_ascis+$before_ascis;
@@ -34,11 +33,11 @@ function an_write($pos,$string,$asci="_"){
 }
 
 function teamspeak_unescape($str){
-    return str_replace("│", "|",str_replace("\\s", " ",str_replace("↵", "\n", $str)));
+    return str_replace("\\/", "/",str_replace("\\p", "|",str_replace("\\s", " ",str_replace("↵", "\n", $str))));
 }
 
 function teamspeak_escape($str){
-    return str_replace("|", "│",str_replace(" ", "\\s",str_replace("\n", "↵", $str)));
+    return str_replace("/", "\\/",str_replace("|", "\\p",str_replace(" ", "\\s",str_replace("\n", "↵", $str))));
 }
 
 function get_teamspeak_param($name,$teamspeakreturn){
